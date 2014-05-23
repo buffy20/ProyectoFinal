@@ -148,26 +148,27 @@ public class Panel extends javax.swing.JPanel {
     public Pelicula getData() {
 //        actor = pelicula.getIdActor();
 //        director = pelicula.getIdDirector();
+        Pelicula peliculaNueva = new Pelicula();
         String title = jTextFieldTitulo.getText();
         try {
             if (title != null) {
-                pelicula.setTitulo(title);
-                pelicula.setProductora(jTextFieldProductora.getText());
-                pelicula.setNacionalidad(jTextFieldNacionalidad.getText());
-                pelicula.setDuracion(Short.valueOf(jTextFieldDuracion.getText()));
-                pelicula.setRecaudacion(BigInteger.valueOf(Long.valueOf(jTextFieldRecaudacion.getText())));
-                pelicula.setFechaEstreno(jDateChooser1.getDate());
-                pelicula.setValoracion(jSlider1.getValue());
-                pelicula.setIdGenero(null);
-                pelicula.setIdDirector(director);
-                pelicula.setIdActor(actor);
-                pelicula.setRutaImagen(jTextFieldImagen.getText());
+                peliculaNueva.setTitulo(title);
+                peliculaNueva.setProductora(jTextFieldProductora.getText());
+                peliculaNueva.setNacionalidad(jTextFieldNacionalidad.getText());
+                peliculaNueva.setDuracion(Short.valueOf(jTextFieldDuracion.getText()));
+                peliculaNueva.setRecaudacion(BigInteger.valueOf(Long.valueOf(jTextFieldRecaudacion.getText())));
+                peliculaNueva.setFechaEstreno(jDateChooser1.getDate());
+                peliculaNueva.setValoracion(jSlider1.getValue());
+                peliculaNueva.setIdGenero(null);
+                peliculaNueva.setIdDirector(director);
+                peliculaNueva.setIdActor(actor);
+                peliculaNueva.setRutaImagen(jTextFieldImagen.getText());
                 this.showValoracion();
-                this.showImage();
+                //this.showImage();
                 if (jCheckBox1.isSelected()) {
-                    pelicula.setOscars(true);
+                    peliculaNueva.setOscars(true);
                 } else {
-                    pelicula.setOscars(false);
+                    peliculaNueva.setOscars(false);
                 }
             } else {
                 JOptionPane.showMessageDialog(this, "Debe rellenar el campo Título", "Información", JOptionPane.WARNING_MESSAGE);
@@ -175,7 +176,7 @@ public class Panel extends javax.swing.JPanel {
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(this, "Debe introducir un número", "Atención", JOptionPane.WARNING_MESSAGE);
         }
-        return pelicula;
+        return peliculaNueva;
     }
 
     //Actualizar los datos de una película
@@ -195,7 +196,7 @@ public class Panel extends javax.swing.JPanel {
                 pelicula.setIdActor(actor);
                 pelicula.setRutaImagen(jTextFieldImagen.getText());
                 this.showValoracion();
-                this.showImage();
+                //this.showImage();
                 if (jCheckBox1.isSelected()) {
                     pelicula.setOscars(true);
                 } else {
